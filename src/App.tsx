@@ -1,34 +1,34 @@
-import { useState } from 'react'
-import viteLogo from '../public/vite.svg'
-import './App.css'
-import reactLogo from './assets/react.svg'
+import { useEffect, useState } from 'react'
+import PodcastCard from './components/PodcastCard'
+import { getTopPodcasts } from './service/podcast'
+import { type Podcast } from './types/podcast.d'
 
 function App () {
-  const [count, setCount] = useState(0)
+  const [podcasts, setPodcasts] = useState<Podcast[]>([])
+
+  useEffect(() => {
+    void getTopPodcasts()
+      .then(res => { setPodcasts(res) })
+      .catch((err) => { console.error(err) })
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="min-h-screen flex flex-col gap-4">
+      <h1 className="text-xl font-bold text-sky-600">
+        Podcaster
+      </h1>
+      <div className="grid grid-cols-4 gap-x-4 gap-y-24">
+        { podcasts.map(podcast => (
+          <article key={podcast.id}>
+            <PodcastCard
+              name={podcast.name}
+              author={podcast.author}
+              imageUrl={podcast.urlImage}
+            />
+          </article>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => { setCount((count) => count + 1) }}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
