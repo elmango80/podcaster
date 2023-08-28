@@ -6,7 +6,7 @@ interface Props {
 
 function PodcastCard ({ name, author, imageUrl }: Props) {
   return (
-    <div className="p-4 border border-gray-200 rounded shadow mt-10 relative">
+    <div className="p-4 border bg-white border-gray-200 rounded shadow mt-10 relative">
         <div className="flex flex-col items-center text-center pt-12">
             <img
               className="w-24 h-24 mb-3 rounded-full shadow absolute -top-10"

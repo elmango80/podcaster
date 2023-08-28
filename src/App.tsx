@@ -1,26 +1,39 @@
-import PodcastCard from './components/PodcastCard'
-import { usePodcasts } from './hooks/usePodcasts'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Layout from './Layout'
+import Home from './pages/home'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />
+      }
+    ]
+  }
+])
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      retry: 1,
+      staleTime: 1000 * 5
+    }
+  }
+})
 
 function App () {
-  const { podcasts } = usePodcasts()
-
   return (
-    <div className="min-h-screen flex flex-col gap-4">
-      <h1 className="text-xl font-bold text-sky-600">
-        Podcaster
-      </h1>
-      <div className="grid grid-cols-4 gap-x-4 gap-y-24">
-        { podcasts.map(podcast => (
-          <article key={podcast.id}>
-            <PodcastCard
-              name={podcast.name}
-              author={podcast.author}
-              imageUrl={podcast.urlImage}
-            />
-          </article>
-        ))}
-      </div>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   )
 }
 
