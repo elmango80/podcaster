@@ -3,7 +3,7 @@ import StatusNotification from './components/StatusNotification'
 
 function Layout () {
   return (
-    <div className="">
+    <div className="min-h-screen w-screen">
       <header className="w-full sticky top-0 bg-white border-b-2 z-10">
         <div className="px-12 py-2 flex justify-between items-center">
           <nav>
