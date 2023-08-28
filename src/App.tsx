@@ -1,21 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Layout from './Layout'
-import Home from './pages/home'
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Home />
-      }
-    ]
-  }
-])
+import { RouterProvider } from 'react-router-dom'
+import { ROUTER } from './routes/router'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,7 +17,7 @@ const queryClient = new QueryClient({
 function App () {
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <RouterProvider router={ROUTER} />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )

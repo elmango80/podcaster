@@ -9,8 +9,8 @@ function Home () {
   const filteredPodcasts = useMemo(() => {
     return filterCriteria != null && filterCriteria.length > 0
       ? podcasts.filter(podcast => {
-        return podcast.name.toLowerCase().includes(filterCriteria.toLowerCase()) === true ||
-          podcast.author.toLowerCase().includes(filterCriteria.toLowerCase()) === true
+        return podcast.name.toLowerCase().includes(filterCriteria.toLowerCase()) ||
+          podcast.author.toLowerCase().includes(filterCriteria.toLowerCase())
       })
       : podcasts
   }, [podcasts, filterCriteria])
@@ -34,13 +34,14 @@ function Home () {
     <section aria-label="Top podcasts list">
       <ul className="grid grid-cols-4 gap-x-4 gap-y-24">
         { filteredPodcasts.map(podcast => (
-          <li key={podcast.id}>
-            <PodcastCard
-              name={podcast.name}
-              author={podcast.author}
-              imageUrl={podcast.urlImage}
-            />
-          </li>
+            <li key={podcast.id}>
+              <PodcastCard
+                id={podcast.id}
+                name={podcast.name}
+                author={podcast.author}
+                imageUrl={podcast.urlImage}
+              />
+            </li>
         ))}
       </ul>
     </section>
