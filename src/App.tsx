@@ -1,16 +1,8 @@
-import { useEffect, useState } from 'react'
 import PodcastCard from './components/PodcastCard'
-import { getTopPodcasts } from './service/podcast'
-import { type Podcast } from './types/podcast.d'
+import { usePodcasts } from './hooks/usePodcasts'
 
 function App () {
-  const [podcasts, setPodcasts] = useState<Podcast[]>([])
-
-  useEffect(() => {
-    void getTopPodcasts()
-      .then(res => { setPodcasts(res) })
-      .catch((err) => { console.error(err) })
-  }, [])
+  const { podcasts } = usePodcasts()
 
   return (
     <div className="min-h-screen flex flex-col gap-4">
