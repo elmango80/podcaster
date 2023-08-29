@@ -1,13 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Layout from '../Layout'
-import Details from '../pages/Details'
 import Home from '../pages/Home'
+import Podcast from '../pages/Podcast'
 
 export const DETAIL_PATH = '/podcast/'
+export const HOME_PATH = '/'
 
-export const ROUTER = createBrowserRouter([
+export const ROUTER_APP = createBrowserRouter([
   {
-    path: '/',
+    path: HOME_PATH,
     element: <Layout />,
     children: [
       {
@@ -15,8 +16,8 @@ export const ROUTER = createBrowserRouter([
         element: <Home />
       },
       {
-        path: `${DETAIL_PATH}:id`,
-        element: <Details />
+        path: `${DETAIL_PATH}:podcastId`,
+        element: <Podcast />
       }
     ]
   }

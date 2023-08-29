@@ -20,7 +20,7 @@ function PodcastCard ({ id, name, author, imageUrl }: Props) {
                 width="96"
                 height="96"
               />
-              <h5 className="mb-1 text-md font-medium text-gray-900">{name}</h5>
+              <h3 className="mb-1 text-md font-medium text-gray-900">{name}</h3>
               <span className="text-sm text-gray-500 dark:text-gray-400">
                 {`Author: ${author}`}
               </span>
