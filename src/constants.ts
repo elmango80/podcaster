@@ -1,3 +1,4 @@
 export const QUERY_KEY = {
-  podcasts: 'podcasts'
+  podcasts: 'podcasts',
+  episodes: 'episodes'
 }
