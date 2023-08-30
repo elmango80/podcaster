@@ -12,6 +12,8 @@ export const useEpisodes = (podcastId: string) => {
   const episodes = data?.map(ele => {
     return ({
       ...ele,
+      id: ele.id.toString(),
+      podcastId: ele.podcastId.toString(),
       date: new Date(ele.date).toLocaleDateString(),
       duration: new Date(Number(ele.duration ?? 0) * 1000).toISOString().slice(11, -8)
     })

@@ -1,8 +1,30 @@
+import { useParams } from 'react-router-dom'
+import PodcastEpisodeDetails from '../components/PodcastEpisodeDetails'
+import { useEpisodes } from '../hooks/useEpisodes'
+
 function EpisodeDetails () {
+  const { podcastId, episodeId } = useParams()
+
+  if (podcastId == null || episodeId == null) {
+    return null
+  }
+
+  const { episodes } = useEpisodes(podcastId)
+  const episode = episodes?.find(episode =>
+    episode.id === episodeId && episode.podcastId === podcastId
+  )
+
   return (
-    <section className="grow" aria-label='Podcast episodes details'>
-      <div>EpisodeDetails</div>
-    </section>
+    <>
+      {
+        episode != null &&
+        <PodcastEpisodeDetails
+          title={episode.title}
+          summary={episode.summary}
+          urlTrack={episode.urlTrack}
+        />
+      }
+    </>
   )
 }
 

@@ -13,8 +13,8 @@ function Podcast () {
   const podcast = podcasts.find(podcast => podcast.id === podcastId)
 
   return (
-    <div className="flex flex-row gap-20">
-      <section className='basis-1/4' aria-label="Podcast details">
+    <div className="grid grid-cols-[250px_minmax(640px,_1fr)] gap-20">
+      <section aria-label="Podcast details">
         { podcast != null &&
           <PodcastInformation
             name={podcast.name}
@@ -24,7 +24,9 @@ function Podcast () {
           />
         }
       </section>
-      <Outlet/>
+      <section aria-label='Podcast episodes'>
+        <Outlet />
+      </section>
     </div>
   )
 }
