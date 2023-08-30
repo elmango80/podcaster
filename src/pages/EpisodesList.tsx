@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
-import PodcastEpisodesList from '../components/PodcastEpisodesList'
-import { useEpisodes } from '../hooks/useEpisodes'
+import PodcastEpisodesList from 'src/components/PodcastEpisodesList'
+import { useEpisodes } from 'src/hooks/useEpisodes'
 
 function EpisodesList () {
   const { podcastId } = useParams()

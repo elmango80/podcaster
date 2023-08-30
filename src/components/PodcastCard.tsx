@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { PODCAST_PATH } from '../routes/router'
+import { PODCAST_PATH } from 'src/routes/router'
 
 interface Props {
   id: string

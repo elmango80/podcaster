@@ -1,4 +1,4 @@
-import { usePodcasts } from '../hooks/usePodcasts'
+import { usePodcasts } from 'src/hooks/usePodcasts'
 
 function StatusNotification () {
   const { isLoading } = usePodcasts()

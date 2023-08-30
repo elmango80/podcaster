@@ -1,5 +1,5 @@
-import type { Episode, Podcast } from '../types/podcast.d'
-import { getFetch } from './fetcher'
+import { getFetch } from 'src/service/fetcher'
+import type { Episode, Podcast } from 'src/types/podcast.d'
 
 const API_URL_TOP_PODCASTS =
 'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json'

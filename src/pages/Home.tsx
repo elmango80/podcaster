@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
-import PodcastCard from '../components/PodcastCard'
-import { usePodcasts } from '../hooks/usePodcasts'
+import PodcastCard from 'src/components/PodcastCard'
+import { usePodcasts } from 'src/hooks/usePodcasts'
 
 function Home () {
   const [filterCriteria, setFilterCriteria] = useState<string | null>(null)

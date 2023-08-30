@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom'
-import StatusNotification from './components/StatusNotification'
+import StatusNotification from 'src/components/StatusNotification'
 
 function Layout () {
   return (
