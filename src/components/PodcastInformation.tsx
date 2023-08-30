@@ -24,7 +24,7 @@ function PodcastInformation ({ author, description, imageUrl, name }: Props) {
         </main>
         <footer className="pt-4">
           <label className="text-xs font-semibold">Description:</label>
-          <p className="text-xs italic">{description}</p>
+          <p className="text-xs italic overflow-hidden text-ellipsis">{description}</p>
         </footer>
       </div>
     </article>

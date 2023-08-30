@@ -24,6 +24,7 @@ export const getTopPodcasts = async (): Promise<Podcast[]> => {
 
 export const getEpisodes = async (podcastId: string): Promise<Episode[]> => {
   const response = await getFetch({ url: `${API_URL_PODCASTS_DETAILS}${podcastId}` })
+  console.log(response)
   const result: Episode[] = response.results
     .map((ele: any): Episode => {
       return {
@@ -33,7 +34,7 @@ export const getEpisodes = async (podcastId: string): Promise<Episode[]> => {
         duration: ele.trackTimeMillis,
         url: ele.episodeUrl,
         description: ele.description,
-        podcastId: 0
+        podcastId: ele.collectionId
       }
     })
 

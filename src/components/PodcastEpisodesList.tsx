@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { EPISODE_PATH } from '../routes/router'
 import { type Episode } from '../types/podcast'
 
 interface Props {
@@ -26,7 +27,7 @@ function PodcastEpisodesList ({ episodes }: Props) {
                 return (
                   <tr key={episode.id} className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} border-b-2`}>
                     <td className="text-left p-2 text-sky-600" scope="row">
-                      <Link to={`/podcast/${episode.podcastId}/episode/${episode.id}`}>
+                      <Link to={`${EPISODE_PATH}${episode.id}`}>
                         {episode.title}
                       </Link>
                     </td>

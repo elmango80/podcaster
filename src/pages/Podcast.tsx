@@ -1,7 +1,5 @@
-import { useParams } from 'react-router-dom'
-import PodcastEpisodesList from '../components/PodcastEpisodesList'
+import { Outlet, useParams } from 'react-router-dom'
 import PodcastInformation from '../components/PodcastInformation'
-import { useEpisodes } from '../hooks/useEpisodes'
 import { usePodcasts } from '../hooks/usePodcasts'
 
 function Podcast () {
@@ -11,13 +9,12 @@ function Podcast () {
     return null
   }
 
-  const { episodes } = useEpisodes(podcastId)
   const { podcasts } = usePodcasts()
   const podcast = podcasts.find(podcast => podcast.id === podcastId)
 
   return (
     <div className="flex flex-row gap-20">
-      <section className='w-1/4' aria-label="Podcast details">
+      <section className='w-80' aria-label="Podcast details">
         { podcast != null &&
           <PodcastInformation
             name={podcast.name}
@@ -27,9 +24,7 @@ function Podcast () {
           />
         }
       </section>
-      <section className="grow" aria-label='Podcast episodes list'>
-        { episodes != null && <PodcastEpisodesList episodes={episodes}/> }
-      </section>
+      <Outlet/>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { DETAIL_PATH } from '../routes/router'
+import { PODCAST_PATH } from '../routes/router'
 
 interface Props {
   id: string
@@ -10,7 +10,7 @@ interface Props {
 
 function PodcastCard ({ id, name, author, imageUrl }: Props) {
   return (
-    <Link to={`${DETAIL_PATH}${id}`}>
+    <Link to={`${PODCAST_PATH}${id}`}>
       <div className="p-4 border bg-white border-gray-200 rounded shadow mt-10 relative">
           <div className="flex flex-col items-center text-center pt-12">
               <img

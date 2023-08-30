@@ -4,10 +4,10 @@ import { getTopPodcasts } from '../service/podcast'
 import { type Podcast } from '../types/podcast.d'
 
 export const usePodcasts = () => {
-  const { isLoading, isError, data } = useQuery<Podcast[]>({
+  const { isLoading, data } = useQuery<Podcast[]>({
     queryKey: [QUERY_KEY.podcasts],
     queryFn: getTopPodcasts
   })
 
-  return { isLoading, isError, podcasts: data ?? [] }
+  return { isLoading, podcasts: data ?? [] }
 }
