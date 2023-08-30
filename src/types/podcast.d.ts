@@ -1,6 +1,6 @@
 export interface Podcast {
   author: string
-  description: string
+  summary: string
   id: string
   name: string
   urlImage: string
@@ -8,10 +8,10 @@ export interface Podcast {
 
 export interface Episode {
   date: string
-  description: string
+  summary: string
   duration: string
-  id: number
-  podcastId: number
+  id: string
+  podcastId: string
   title: string
-  url: string
+  urlTrack: string
 }

@@ -15,7 +15,7 @@ export const getTopPodcasts = async (): Promise<Podcast[]> => {
       author: ele['im:artist'].label,
       urlImage: ele['im:image'][2].label,
       name: ele['im:name'].label,
-      description: ele.summary.label
+      summary: ele.summary.label
     }
   })
 
@@ -24,16 +24,16 @@ export const getTopPodcasts = async (): Promise<Podcast[]> => {
 
 export const getEpisodes = async (podcastId: string): Promise<Episode[]> => {
   const response = await getFetch({ url: `${API_URL_PODCASTS_DETAILS}${podcastId}` })
-  console.log(response)
   const result: Episode[] = response.results
+    .slice(1)
     .map((ele: any): Episode => {
       return {
         id: ele.trackId,
         title: ele.trackName,
         date: ele.releaseDate,
         duration: ele.trackTimeMillis,
-        url: ele.episodeUrl,
-        description: ele.description,
+        urlTrack: ele.episodeUrl,
+        summary: ele.description,
         podcastId: ele.collectionId
       }
     })

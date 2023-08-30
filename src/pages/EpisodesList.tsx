@@ -12,7 +12,7 @@ function EpisodesList () {
   const { episodes } = useEpisodes(podcastId)
 
   return (
-    <section className="grow" aria-label='Podcast episodes list'>
+    <section className="basis-3/4" aria-label='Podcast episodes list'>
       { episodes != null && <PodcastEpisodesList episodes={episodes}/> }
     </section>
   )

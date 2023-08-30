@@ -14,13 +14,13 @@ function Podcast () {
 
   return (
     <div className="flex flex-row gap-20">
-      <section className='w-80' aria-label="Podcast details">
+      <section className='basis-1/4' aria-label="Podcast details">
         { podcast != null &&
           <PodcastInformation
             name={podcast.name}
             author={podcast.author}
             imageUrl={podcast.urlImage}
-            description={podcast.description}
+            summary={podcast.summary}
           />
         }
       </section>
