@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { EPISODE_PATH } from '../routes/router'
-import { type Episode } from '../types/podcast'
+import { EPISODE_PATH } from 'src/routes/router'
+import { type Episode } from 'src/types/podcast'
 
 interface Props {
   episodes: Episode[]
