@@ -9,7 +9,7 @@ interface Props {
 
 function PodcastInformation ({ author, summary, imageUrl, name }: Props) {
   return (
-    <article className=" bg-white border border-gray-200 rounded shadow px-2 py-4">
+    <div className="bg-white border border-gray-200 rounded shadow px-2 py-4">
       <div className="flex flex-col px-4 divide-y-2 divide-gray-100">
         <header className="flex justify-center pb-4">
           <Link to="">
@@ -33,7 +33,7 @@ function PodcastInformation ({ author, summary, imageUrl, name }: Props) {
           <p className="text-xs italic overflow-hidden text-ellipsis">{summary}</p>
         </footer>
       </div>
-    </article>
+    </div>
   )
 }
 

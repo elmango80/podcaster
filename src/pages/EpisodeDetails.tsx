@@ -1,6 +1,7 @@
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import PodcastEpisodeDetails from 'src/components/PodcastEpisodeDetails'
 import { useEpisodes } from 'src/hooks/useEpisodes'
+import { NOT_FOUND_PATH } from 'src/routes/router'
 
 function EpisodeDetails () {
   const { podcastId, episodeId } = useParams()
@@ -9,15 +10,19 @@ function EpisodeDetails () {
     return null
   }
 
-  const { episodes } = useEpisodes(podcastId)
+  const { isLoading, episodes } = useEpisodes(podcastId)
   const episode = episodes?.find(episode =>
     episode.id === episodeId && episode.podcastId === podcastId
   )
 
+  if (!isLoading && episode == null) {
+    return (<Navigate to={NOT_FOUND_PATH} replace />)
+  }
+
   return (
     <>
       {
-        episode != null &&
+        !isLoading && episode != null &&
         <PodcastEpisodeDetails
           title={episode.title}
           summary={episode.summary}

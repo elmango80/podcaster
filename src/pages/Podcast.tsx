@@ -1,6 +1,7 @@
-import { Outlet, useParams } from 'react-router-dom'
+import { Navigate, Outlet, useParams } from 'react-router-dom'
 import PodcastInformation from 'src/components/PodcastInformation'
 import { usePodcasts } from 'src/hooks/usePodcasts'
+import { NOT_FOUND_PATH } from 'src/routes/router'
 
 function Podcast () {
   const { podcastId } = useParams()
@@ -9,8 +10,12 @@ function Podcast () {
     return null
   }
 
-  const { podcasts } = usePodcasts()
+  const { isLoading, podcasts } = usePodcasts()
   const podcast = podcasts.find(podcast => podcast.id === podcastId)
+
+  if (!isLoading && podcast == null) {
+    return (<Navigate to={NOT_FOUND_PATH} replace />)
+  }
 
   return (
     <div className="grid grid-cols-[250px_minmax(640px,_1fr)] gap-20">
