@@ -6,7 +6,7 @@ import { type Podcast } from 'src/types/podcast.d'
 export const usePodcasts = () => {
   const { isLoading, data } = useQuery<Podcast[]>({
     queryKey: [QUERY_KEY.podcasts],
-    queryFn: getTopPodcasts
+    queryFn: getTopPodcasts,
   })
 
   return { isLoading, podcasts: data ?? [] }

@@ -9,12 +9,12 @@ const queryClient = new QueryClient({
       refetchOnWindowFocus: false,
       refetchOnMount: false,
       retry: 0,
-      cacheTime: 1000 * 60 * 60 * 24
-    }
-  }
+      cacheTime: 1000 * 60 * 60 * 24,
+    },
+  },
 })
 
-function App () {
+function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={ROUTER_APP} />

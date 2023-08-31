@@ -18,7 +18,7 @@ export const ROUTER_APP = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
       },
       {
         path: `${PODCAST_PATH}:podcastId`,
@@ -26,22 +26,22 @@ export const ROUTER_APP = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <EpisodesList />
+            element: <EpisodesList />,
           },
           {
             path: `${EPISODE_PATH}:episodeId`,
-            element: <EpisodeDetails />
-          }
-        ]
+            element: <EpisodeDetails />,
+          },
+        ],
       },
       {
         path: NOT_FOUND_PATH,
-        element: <NotFound />
+        element: <NotFound />,
       },
       {
         path: '*',
-        element: <Navigate to={NOT_FOUND_PATH} replace />
-      }
-    ]
-  }
+        element: <Navigate to={NOT_FOUND_PATH} replace />,
+      },
+    ],
+  },
 ])

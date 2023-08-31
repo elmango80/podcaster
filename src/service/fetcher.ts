@@ -5,9 +5,10 @@ export const getFetch = async ({ url }: { url: string }) => {
       {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json'
-        }
-      })
+          'Content-Type': 'application/json',
+        },
+      }
+    )
 
     if (!response.ok) {
       throw new Error('Failed to fetch top podcasts.')
