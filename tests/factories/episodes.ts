@@ -5,7 +5,7 @@ import { Episode } from 'src/types/podcast'
 const factory = Factory.define<Episode>(({ transientParams, sequence }) => ({
   id: sequence.toString(),
   title: faker.lorem.words({ min: 8, max: 12 }),
-  date: faker.date.past().toString(),
+  date: faker.date.past().toLocaleDateString(),
   duration: faker.number.int({ min: 1200000, max: 3000000 }).toString(),
   urlTrack: faker.internet.url(),
   summary: faker.lorem.paragraph({ min: 15, max: 30 }),

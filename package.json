@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "start:dev": "npm run dev -- --port 3000 --open",
     "start:prod": "npm run build && npm run preview",
-    "test": "jest --watchAll --config=jest.config.ts"
+    "test": "jest --watchAll --config=jest.config.ts --verbose"
   },
   "dependencies": {
     "@tanstack/react-query": "4.33.0",
