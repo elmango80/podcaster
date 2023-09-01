@@ -38,13 +38,15 @@ export const getEpisodes = async (podcastId: string): Promise<Episode[]> => {
       .slice(1)
       .map((ele: any): Episode => {
         return {
-          id: ele.trackId,
+          id: ele.trackId.toString(),
           title: ele.trackName,
-          date: ele.releaseDate,
-          duration: ele.trackTimeMillis,
+          date: new Date(ele.releaseDate).toLocaleDateString(),
+          duration: new Date(ele.trackTimeMillis * 1000)
+            .toISOString()
+            .slice(11, -8),
           urlTrack: ele.episodeUrl,
           summary: ele.description,
-          podcastId: ele.collectionId,
+          podcastId: ele.collectionId.toString(),
         }
       })
 

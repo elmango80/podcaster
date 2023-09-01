@@ -9,20 +9,5 @@ export const useEpisodes = (podcastId: string): UseEpisodes => {
     queryFn: async () => await getEpisodes(podcastId),
   })
 
-  const episodes = data?.map((ele: any): Episode => {
-    return {
-      ...ele,
-      id: ele.id.toString(),
-      podcastId: ele.podcastId.toString(),
-      date: new Date(ele.date).toLocaleDateString(),
-      duration: new Date(Number(ele.duration ?? 0) * 1000)
-        .toISOString()
-        .slice(11, -8),
-    }
-  })
-
-  return {
-    isLoading,
-    episodes: episodes as Episode[],
-  }
+  return { isLoading, episodes: data ?? [] }
 }
