@@ -23,13 +23,14 @@
     "useDefineForClassFields": true
   },
   "include": [
-    "src",
-    "tests",
-    "vite.config.ts",
-    "tailwind.config.js",
-    "postcss.config.js",
     ".eslintrc.cjs",
-    ".prettierrc.cjs"
+    ".prettierrc.cjs",
+    "jest.config.ts",
+    "postcss.config.js",
+    "src",
+    "tailwind.config.js",
+    "tests",
+    "vite.config.ts"
   ],
   "references": [
     {
