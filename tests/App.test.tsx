@@ -4,7 +4,7 @@ import { getTopPodcasts } from 'src/service/api'
 import { generatePodcast, generatePodcastsList } from './factories/podcast'
 import { invalidCache } from './utils/cache'
 
-jest.mock('src/service/podcast')
+jest.mock('src/service/api')
 
 describe('Podcasts List', () => {
   afterEach(() => {
