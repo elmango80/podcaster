@@ -1,15 +1,15 @@
 import { useQuery } from '@tanstack/react-query'
 import { QUERY_KEY } from 'src/constants'
 import { getEpisodes } from 'src/service/podcast'
-import type { Episode } from 'src/types/podcast.d'
+import type { Episode, UseEpisodes } from 'src/types/podcast.d'
 
-export const useEpisodes = (podcastId: string) => {
+export const useEpisodes = (podcastId: string): UseEpisodes => {
   const { isLoading, data } = useQuery<Episode[]>({
     queryKey: [QUERY_KEY.episodes, podcastId],
     queryFn: async () => await getEpisodes(podcastId),
   })
 
-  const episodes = data?.map((ele) => {
+  const episodes = data?.map((ele: any): Episode => {
     return {
       ...ele,
       id: ele.id.toString(),
@@ -23,6 +23,6 @@ export const useEpisodes = (podcastId: string) => {
 
   return {
     isLoading,
-    episodes,
+    episodes: episodes as Episode[],
   }
 }

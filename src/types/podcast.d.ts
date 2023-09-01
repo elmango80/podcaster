@@ -15,3 +15,13 @@ export interface Episode {
   title: string
   urlTrack: string
 }
+
+export type UsePodcasts = {
+  isLoading: boolean
+  podcasts: Podcast[]
+}
+
+export type UseEpisodes = {
+  isLoading: boolean
+  episodes: Episode[]
+}

@@ -27,10 +27,10 @@
     ".prettierrc.cjs",
     "jest.config.ts",
     "postcss.config.js",
-    "src",
     "tailwind.config.js",
+    "vite.config.ts",
+    "src",
     "tests",
-    "vite.config.ts"
   ],
   "references": [
     {
