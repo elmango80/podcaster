@@ -12,11 +12,6 @@ export const queryClient = new QueryClient({
       cacheTime: 1000 * 60 * 60 * 24,
     },
   },
-  logger: {
-    log: console.log,
-    warn: console.warn,
-    error: console.error,
-  },
 })
 
 function App() {

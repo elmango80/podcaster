@@ -8,6 +8,10 @@ import { generatePodcast } from '../factories/podcast'
 
 jest.mock('src/service/fetcher')
 
+afterEach(() => {
+  jest.resetModules()
+})
+
 describe('Service functions', () => {
   describe('When get podcasts from api', () => {
     test('it should return an empty list when there are no podcasts', async () => {

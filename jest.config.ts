@@ -1,8 +1,6 @@
 import type { Config } from 'jest'
 
 const config: Config = {
-  clearMocks: true,
-  restoreMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',

@@ -1,13 +1,7 @@
 import { QueryClient } from '@tanstack/react-query'
 
-export const mockQueryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      cacheTime: 1000 * 10,
-    },
-  },
-})
+export const mockQueryClient = new QueryClient()
 
-export const invalidCache = () => {
+export const invalidMockCache = () => {
   mockQueryClient.clear()
 }

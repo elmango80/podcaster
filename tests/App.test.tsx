@@ -6,11 +6,12 @@ import { invalidCache } from './utils/cache'
 
 jest.mock('src/service/api')
 
-describe('Podcasts List', () => {
-  afterEach(() => {
-    invalidCache()
-  })
+afterEach(() => {
+  invalidCache()
+  jest.resetModules()
+})
 
+describe('Podcasts List', () => {
   describe('When the user loads the home page', () => {
     test('it should display a list of top podcasts', async () => {
       const podcasts = generatePodcastsList(10)
