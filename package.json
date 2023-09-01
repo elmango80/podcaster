@@ -7,11 +7,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:dev": "npm run build -- --mode development",
+    "build:prod": "npm run build -- --mode production",
     "lint": "eslint --ignore-path .gitignore . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint --fix --ignore-path .gitignore",
-    "preview": "vite preview",
-    "start:dev": "npm run dev -- --port 3000 --open",
-    "start:prod": "npm run build && npm run preview",
+    "preview": "vite preview --open",
+    "start:dev": "npm run dev -- --mode development --port 3000 --open",
     "test": "jest --watchAll --config=jest.config.ts --verbose"
   },
   "dependencies": {
@@ -57,7 +58,8 @@
     "tailwindcss": "3.3.3",
     "ts-node": "10.9.1",
     "typescript": "5.2.2",
-    "vite": "4.4.5"
+    "vite": "4.4.5",
+    "vite-plugin-html": "3.2.0"
   },
   "browserslist": {
     "production": [
