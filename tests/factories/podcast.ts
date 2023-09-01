@@ -12,7 +12,7 @@ const factory = Factory.define<Podcast>(({ sequence }) => ({
 
 export const generatePodcast = () => factory.build()
 
-export const generatePodcastList = (min = 0, max = 10) => {
+export const generatePodcastsList = (min = 0, max = 10) => {
   const length = Math.floor(Math.random() * (max - min) + min)
   return factory.buildList(length)
 }

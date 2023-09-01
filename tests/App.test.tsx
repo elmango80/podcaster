@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import App from 'src/App'
-import { getTopPodcasts } from 'src/service/podcast'
-import { generatePodcast, generatePodcastList } from './factories/podcast'
+import { getTopPodcasts } from 'src/service/api'
+import { generatePodcast, generatePodcastsList } from './factories/podcast'
 import { invalidCache } from './utils/cache'
 
 jest.mock('src/service/podcast')
@@ -13,7 +13,7 @@ describe('Podcasts List', () => {
 
   describe('When the user loads the home page', () => {
     test('it should display a list of top podcasts', async () => {
-      const podcasts = generatePodcastList(10)
+      const podcasts = generatePodcastsList(10)
 
       jest.mocked(getTopPodcasts).mockResolvedValue(podcasts)
 
@@ -30,7 +30,7 @@ describe('Podcasts List', () => {
   describe('When the user types in the filtering input', () => {
     describe('Filtering by Podcast Author', () => {
       test('it should display the podcasts that match the author', async () => {
-        const podcasts = generatePodcastList(2)
+        const podcasts = generatePodcastsList(2)
         const givenPodcast = generatePodcast()
 
         jest
@@ -51,7 +51,7 @@ describe('Podcasts List', () => {
       })
 
       test('it should display an empty list if no author matches', () => {
-        const podcasts = generatePodcastList(2)
+        const podcasts = generatePodcastsList(2)
         const givenPodcastNotExist = generatePodcast()
 
         jest.mocked(getTopPodcasts).mockResolvedValue(podcasts)
@@ -72,7 +72,7 @@ describe('Podcasts List', () => {
 
     describe('Filtering by Podcast Name', () => {
       test('it should display the podcasts that match the name', async () => {
-        const podcasts = generatePodcastList(2)
+        const podcasts = generatePodcastsList(2)
         const givenPodcast = generatePodcast()
 
         jest
@@ -93,7 +93,7 @@ describe('Podcasts List', () => {
       })
 
       test('it should display an empty list if no name matches', () => {
-        const podcasts = generatePodcastList(2)
+        const podcasts = generatePodcastsList(2)
         const givenPodcastNotExist = generatePodcast()
 
         jest.mocked(getTopPodcasts).mockResolvedValue(podcasts)

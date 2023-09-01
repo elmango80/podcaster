@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { QUERY_KEY } from 'src/constants'
-import { getTopPodcasts } from 'src/service/podcast'
+import { getTopPodcasts } from 'src/service/api'
 import type { Podcast, UsePodcasts } from 'src/types/podcast.d'
 
 export const usePodcasts = (): UsePodcasts => {

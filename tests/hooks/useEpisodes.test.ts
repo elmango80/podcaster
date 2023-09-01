@@ -1,6 +1,6 @@
 import { renderHook, waitFor } from '@testing-library/react'
 import { useEpisodes } from 'src/hooks/useEpisodes'
-import { getEpisodes } from 'src/service/podcast'
+import { getEpisodes } from 'src/service/api'
 import { generateEpisodesList } from '../factories/episodes'
 import { generatePodcast } from '../factories/podcast'
 import { customRender } from '../utils/customRender'
@@ -19,7 +19,6 @@ describe('', () => {
     })
 
     await waitFor(() => {
-      console.log(result.current.episodes)
       expect(result.current.isLoading).toBeFalsy()
     })
   })
