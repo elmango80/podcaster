@@ -1,4 +1,13 @@
+import { useEffect } from 'react'
+import { usePodcasterContext } from 'src/hooks/usePodcaster'
+
 function NotFound() {
+  const { dispatch } = usePodcasterContext()
+
+  useEffect(() => {
+    dispatch({ type: 'END_LOADING_PAGE' })
+  }, [])
+
   return (
     <section className='bg-white min-h-full flex items-center content-center'>
       <div className='container flex items-center min-h-full mx-auto'>

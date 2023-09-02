@@ -1,11 +1,19 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import PodcastCard from 'src/components/PodcastCard'
+import { usePodcasterContext } from 'src/hooks/usePodcaster'
 import { usePodcasts } from 'src/hooks/usePodcasts'
 import { Podcast } from 'src/types/podcast'
 
 function Home() {
   const [filterCriteria, setFilterCriteria] = useState<string | null>(null)
-  const { podcasts } = usePodcasts()
+  const { isLoading, podcasts } = usePodcasts()
+  const { state, dispatch } = usePodcasterContext()
+
+  useEffect(() => {
+    if (state.isLoading && !isLoading && podcasts.length > 0) {
+      dispatch({ type: 'END_LOADING_PAGE' })
+    }
+  }, [isLoading, podcasts, state.isLoading])
 
   const filteredPodcasts = useMemo(() => {
     return filterCriteria != null && filterCriteria.length > 0

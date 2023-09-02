@@ -1,7 +1,16 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { useEffect } from 'react'
+import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import StatusNotification from 'src/components/StatusNotification'
+import { usePodcasterContext } from './hooks/usePodcaster'
 
 function Layout() {
+  const { dispatch } = usePodcasterContext()
+  const location = useLocation()
+
+  useEffect(() => {
+    dispatch({ type: 'START_LOADING_PAGE' })
+  }, [location])
+
   return (
     <div className='min-h-screen w-screen grid grid-rows-[46px_1fr]'>
       <header className='w-full sticky top-0 bg-white border-b-2 z-10'>
