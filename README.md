@@ -1,19 +1,12 @@
 <div align="center">
   <img src="./public/favicon.svg" alt="Podcaster logo" width='128' height='128'/>
   <h1>Podcaster</h1>
-  <img src="https://github.com/elmango80/podcaster/assets/24403510/575afd23-7703-4160-9a14-a3f78b62a73e" alt="Podcaster logo"/>
-
-  <h4>Escucha, descubre, disfruta: ¡Podcaster lo hace fácil!</h4>
-
-  <sub>
-  Vite · React · TypeScript · SWC · Tailwind CSS · PostCSS · React Query · React Router
-  </sub>
-  <br/>
-  <sub>
-  Eslint · Prettier · Jest · Testing Library
-  </sub>
+  <img src="https://github.com/elmango80/podcaster/assets/24403510/58013d98-8338-477f-af3a-fadf5071af45" alt="Podcaster screenshot" />
+  <h4>🎤 Escucha, descubre, disfruta: ¡Podcaster lo hace fácil! 🎧</h4>
 </div>
 <br/>
+
+![Vite Badge](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff&style=flat-square) ![React Badge](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=flat-square) ![TypeScript Badge](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=flat-square) ![SWC Badge](https://img.shields.io/badge/SWC-EEE?logo=swc&logoColor=000&style=flat-square) ![Tailwind CSS Badge](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=fff&style=flat-square) ![PostCSS Badge](https://img.shields.io/badge/PostCSS-DD3A0A?logo=postcss&logoColor=fff&style=flat-square) ![React Query Badge](https://img.shields.io/badge/React%20Query-FF4154?logo=reactquery&logoColor=fff&style=flat-square) ![React Router Badge](https://img.shields.io/badge/React%20Router-CA4245?logo=reactrouter&logoColor=fff&style=flat-square) ![ESLint Badge](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=fff&style=flat-square) ![Prettier Badge](https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&logoColor=fff&style=flat-square) ![Jest Badge](https://img.shields.io/badge/Jest-C21325?logo=jest&logoColor=fff&style=flat-square) ![Testing Library Badge](https://img.shields.io/badge/Testing%20Library-E33332?logo=testinglibrary&logoColor=fff&style=flat-square)
 
 This web application allows you to explore the top 100 iTunes podcasts in a simple and straightforward manner. Find your favorite shows and start listening to episodes in the blink of an eye. Simple and straightforward.
 
