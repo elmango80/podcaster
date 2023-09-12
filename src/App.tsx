@@ -4,7 +4,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
 import { RouterProvider } from 'react-router-dom'
 import { ROUTER_APP } from 'src/routes/router'
-import { PodcasterProvider } from './context/context'
+import { PodcasterProvider } from './context/PodcasterContext'
 
 export const queryClient = new QueryClient({
   defaultOptions: {
