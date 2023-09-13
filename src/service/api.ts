@@ -41,7 +41,7 @@ export const getEpisodes = async (podcastId: string): Promise<Episode[]> => {
           id: ele.trackId.toString(),
           title: ele.trackName,
           date: new Date(ele.releaseDate).toLocaleDateString(),
-          duration: new Date(ele.trackTimeMillis * 1000)
+          duration: new Date(ele.trackTimeMillis ?? 0 * 1000)
             .toISOString()
             .slice(11, -8),
           urlTrack: ele.episodeUrl,

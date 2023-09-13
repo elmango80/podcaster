@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import PodcasterContext from 'src/context/context'
+import PodcasterContext from 'src/context/PodcasterContext'
 
 export const usePodcasterContext = () => {
   const context = useContext(PodcasterContext)
