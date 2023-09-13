@@ -9,6 +9,8 @@ export default {
     'plugin:prettier/recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
+    'testing-library',
+    'plugin:jest-dom/recommended',
   ],
   overrides: [
     {
@@ -18,6 +20,19 @@ export default {
       files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
         sourceType: 'script',
+      },
+    },
+    {
+      files: ['**/tests/**/*.test.ts'],
+      rules: {
+        'testing-library/await-async-query': 0,
+        '@typescript-eslint/no-unsafe-member-access': 0,
+        '@typescript-eslint/no-unsafe-call': 0,
+        'testing-library/prefer-screen-queries': 0,
+        'testing-library/await-async-queries': 'error',
+        'testing-library/no-await-sync-queries': 'error',
+        'testing-library/no-debugging-utils': 'warn',
+        'testing-library/no-dom-import': 'off',
       },
     },
   ],
