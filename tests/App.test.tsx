@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import App from 'src/App'
 import { getTopPodcasts } from 'src/service/api'
 import { generatePodcast, generatePodcastsList } from './factories/podcast'
@@ -33,6 +34,7 @@ describe('Podcasts List', () => {
       test('it should display the podcasts that match the author', async () => {
         const podcasts = generatePodcastsList(2)
         const givenPodcast = generatePodcast()
+        const user = userEvent.setup()
 
         jest
           .mocked(getTopPodcasts)
@@ -41,9 +43,8 @@ describe('Podcasts List', () => {
         render(<App />)
 
         const filterInput = screen.getByPlaceholderText(/filter/i)
-        fireEvent.change(filterInput, {
-          target: { value: givenPodcast.author },
-        })
+
+        await user.type(filterInput, givenPodcast.author)
 
         const filteredPodcastsList = await screen.findAllByRole('listitem')
 
@@ -51,18 +52,18 @@ describe('Podcasts List', () => {
         expect(filteredPodcastsList.length).toBe(1)
       })
 
-      test('it should display an empty list if no author matches', () => {
+      test('it should display an empty list if no author matches', async () => {
         const podcasts = generatePodcastsList(2)
         const givenPodcastNotExist = generatePodcast()
+        const user = userEvent.setup()
 
         jest.mocked(getTopPodcasts).mockResolvedValue(podcasts)
 
         render(<App />)
 
         const filterInput = screen.getByPlaceholderText(/filter/i)
-        fireEvent.change(filterInput, {
-          target: { value: givenPodcastNotExist.author },
-        })
+
+        await user.type(filterInput, givenPodcastNotExist.author)
 
         const emptyPodcastsList = screen.getByRole('list')
 
@@ -75,6 +76,7 @@ describe('Podcasts List', () => {
       test('it should display the podcasts that match the name', async () => {
         const podcasts = generatePodcastsList(2)
         const givenPodcast = generatePodcast()
+        const user = userEvent.setup()
 
         jest
           .mocked(getTopPodcasts)
@@ -83,9 +85,8 @@ describe('Podcasts List', () => {
         render(<App />)
 
         const filterInput = screen.getByPlaceholderText(/filter/i)
-        fireEvent.change(filterInput, {
-          target: { value: givenPodcast.name },
-        })
+
+        await user.type(filterInput, givenPodcast.name)
 
         const filteredPodcastsList = await screen.findAllByRole('listitem')
 
@@ -93,18 +94,18 @@ describe('Podcasts List', () => {
         expect(filteredPodcastsList.length).toBe(1)
       })
 
-      test('it should display an empty list if no name matches', () => {
+      test('it should display an empty list if no name matches', async () => {
         const podcasts = generatePodcastsList(2)
         const givenPodcastNotExist = generatePodcast()
+        const user = userEvent.setup()
 
         jest.mocked(getTopPodcasts).mockResolvedValue(podcasts)
 
         render(<App />)
 
         const filterInput = screen.getByPlaceholderText(/filter/i)
-        fireEvent.change(filterInput, {
-          target: { value: givenPodcastNotExist.name },
-        })
+
+        await user.type(filterInput, givenPodcastNotExist.name)
 
         const emptyPodcastsList = screen.getByRole('list')
 
