@@ -15,6 +15,7 @@ const queryClient = new QueryClient({
 
 const persister = createSyncStoragePersister({
   storage: window.localStorage,
+  key: 'PODCASTER_OFFLINE_CACHE',
 })
 
 interface Props {
