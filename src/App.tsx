@@ -1,36 +1,16 @@
-import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister'
-import { QueryClient } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
 import { RouterProvider } from 'react-router-dom'
 import { ROUTER_APP } from 'src/routes/router'
 import { PodcasterProvider } from './context/PodcasterContext'
-
-export const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      refetchOnMount: false,
-      retry: 0,
-      cacheTime: 1000 * 60 * 60 * 24,
-    },
-  },
-})
-
-const persister = createSyncStoragePersister({
-  storage: window.localStorage,
-})
+import { QueryClientProvider } from './context/QueryClientProvider'
 
 function App() {
   return (
     <PodcasterProvider>
-      <PersistQueryClientProvider
-        client={queryClient}
-        persistOptions={{ persister }}
-      >
+      <QueryClientProvider>
         <RouterProvider router={ROUTER_APP} />
         <ReactQueryDevtools initialIsOpen={false} />
-      </PersistQueryClientProvider>
+      </QueryClientProvider>
     </PodcasterProvider>
   )
 }
